@@ -97,7 +97,9 @@ def eval_model(args):
     prompt = conv.get_prompt()
 
     image_files = image_parser(args)
+    # print(f"image_files = {image_files}")
     images = load_images(image_files)
+    # print(f"images.shape = {images.shape}")
     image_sizes = [x.size for x in images]
     images_tensor = process_images(
         images,
@@ -105,11 +107,15 @@ def eval_model(args):
         model.config
     ).to(model.device, dtype=torch.float16)
 
+    # print(f"prompt = {prompt}")
     input_ids = (
         tokenizer_image_token(prompt, tokenizer, IMAGE_TOKEN_INDEX, return_tensors="pt")
         .unsqueeze(0)
         .cuda()
     )
+    # print(f"input_ids = {input_ids}")
+    # print(f"images_tensor.shape = {images_tensor.shape}")
+    # print(f"image_sizes = {image_sizes}")
 
     with torch.inference_mode():
         output_ids = model.generate(

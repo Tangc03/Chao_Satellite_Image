@@ -1,0 +1,22 @@
+sevir:
+  img_height: 384
+  img_width: 384
+  in_len: 4
+  out_len: 4
+  seq_len: 8
+  stride: 8
+  start_date: null
+  # train_test_split_date: [2019, 6, 1]
+  #end_date: null
+  end_date: [2017, 6, 15]
+  shuffle: false
+  shuffle_seed: 0
+  frame_stride: 4
+grid:
+  use_grid: false
+  grid_linewidth: 5
+  grid_color: "red"
+number:
+  use_number: false
+  number_size: 30
+  number_color: "red"

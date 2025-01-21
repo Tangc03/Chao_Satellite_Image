@@ -134,6 +134,15 @@ class LlavaLlamaForCausalLM(LlamaForCausalLM, LlavaMetaForCausalLM):
         else:
             inputs_embeds = self.get_model().embed_tokens(inputs)
 
+        # GenerationMixin.generate
+        # if position_ids is not None:
+        #     print(f"position_ids.shape = {position_ids.shape}")
+        #     print(f"position_ids = {position_ids}")
+        # if attention_mask is not None:
+        #     print(f"attention_mask.shape = {attention_mask.shape}")
+        #     print(f"attention_mask = {attention_mask}")
+        # print(f"inputs_embeds.shape = {inputs_embeds.shape}")
+        # print(f"inputs_embeds = {inputs_embeds}")
         return super().generate(
             position_ids=position_ids,
             attention_mask=attention_mask,

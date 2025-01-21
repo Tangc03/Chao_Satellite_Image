@@ -12,6 +12,7 @@ dist
 
 # Data
 !**/alpaca-data-conversation.json
+playground/data/
 
 # Editor
 .idea
@@ -33,3 +34,6 @@ ckpts*
 
 # Demo
 serve_images/
+
+# Doc
+mydoc/
